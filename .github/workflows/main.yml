@@ -13,19 +13,19 @@ jobs:
 
   steps:
 
-      -name: checkout do Repositório
+      - name: checkout do Repositório
        uses: actions/checkout@v4 
 
-      -name: Instalando as dependências
+      - name: Instalando as dependências
        run: npm install
 
-      -name: Iniciar o servidor de aplicação web
+      - name: Iniciar o servidor de aplicação web
        run: npm run server & 
 
-      -name: Iniciar o servidor de mocks
+      - name: Iniciar o servidor de mocks
        run: npm run mock-server & 
 
-      -name: Executar os testes com cypress
+      - name: Executar os testes com cypress
        run: npx cypress run
 
         
