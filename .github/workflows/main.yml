@@ -1,31 +1,22 @@
 name: CI Mentoria e2e tests
 
 # gatilhos
-on: 
-  workflow_dispatch: 
+on:
+  workflow_dispatch:
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     env:
-      API_BASE_URL : 'http://localhost:3000'
+      API_BASE_URL: 'http://localhost:3000'
       PORT: 4000
 
-  steps:
-
-      - name: checkout do Repositório
-       uses: actions/checkout@v4 
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
 
       - name: Instalando as dependências
-       run: npm install
+        run: npm install
 
       - name: Iniciar o servidor de aplicação web
-       run: npm run server & 
-
-      - name: Iniciar o servidor de mocks
-       run: npm run mock-server & 
-
-      - name: Executar os testes com cypress
-       run: npx cypress run
-
-        
+        run:
